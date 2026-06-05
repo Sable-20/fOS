@@ -5,7 +5,7 @@
 #include <limine/limine.h>
 
 // Set the base revision to 6, this is recommended as this is the latest
-// base revision described by the Limine boot protocol specification.
+// base revision del/liscribed by the Limine boot protocol specification.
 // See specification for further info.
 
 __attribute__((used, section(".limine_requests")))

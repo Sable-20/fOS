@@ -25,6 +25,8 @@ pub fn build(b: *std.Build) void {
     kernel.root_module.addCSourceFiles(.{
         .files = &.{
             "kernel/kernel/kmain.c",
+            // "kernel/drivers/font.c",
+            "kernel/drivers/tty.c",
             //libk
             "libk/string/memcmp.c",
             "libk/string/memcpy.c",
@@ -47,6 +49,11 @@ pub fn build(b: *std.Build) void {
     kernel.root_module.addIncludePath(b.path("libk/include"));
 
     kernel.setLinkerScript(b.path("kernel/linker.ld"));
+
+    // const font_obj = b.addSystemCommand(&.{ "bash", "-c", "objcopy -I binary -O elf64-x86-64 -B i386:x86-64 assets/zap-ext-light16.psf font.o" });
+
+    // kernel.step.dependOn(&font_obj.step);
+    // kernel.root_module.addObjectFile(b.path("font.o"));
 
     // IMPORTANT: install artifact (this creates zig-out/bin/kernel.elf)
     const install_kernel = b.addInstallArtifact(kernel, .{});
