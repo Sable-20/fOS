@@ -1,4 +1,4 @@
 iso_root/
-.zig_cache/
+.zig-cache/
 *.iso
 zig-out/
