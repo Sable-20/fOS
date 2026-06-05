@@ -1,0 +1,3 @@
+iso_root/
+.zig_cache/
+*.iso
