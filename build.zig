@@ -25,7 +25,11 @@ pub fn build(b: *std.Build) void {
     kernel.root_module.addCSourceFiles(.{
         .files = &.{
             "kernel/kernel/kmain.c",
-            "kernel/impl/memory.c",
+            //libk
+            "libk/string/memcmp.c",
+            "libk/string/memcpy.c",
+            "libk/string/memmove.c",
+            "libk/string/memset.c",
         },
         .flags = &.{
             "-ffreestanding",
@@ -40,6 +44,7 @@ pub fn build(b: *std.Build) void {
 
     kernel.root_module.addIncludePath(b.path("kernel/include"));
     kernel.root_module.addIncludePath(b.path("limine"));
+    kernel.root_module.addIncludePath(b.path("libk/include"));
 
     kernel.setLinkerScript(b.path("kernel/linker.ld"));
 
