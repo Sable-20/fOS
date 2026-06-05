@@ -1,2 +1,0 @@
-0
-302 138784 1780636542799403704 0f02cd9d2e50a232e4c86c8ca8a52ce6 0 /home/sable/Desktop/fOS/kernel/arch/x86_64/start.S
